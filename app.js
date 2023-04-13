@@ -5,19 +5,16 @@ const mongoose = require("mongoose");
 const _ = require("lodash");
 const app = express();
 
-
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-
 
 try {
     mongoose.connect('mongodb://127.0.0.1:27017/todolistDB');
 } catch (error) {
     console.log(error);
 }
-//console.log(mongoose.connection.readyState);
+
 const itemSchema = new mongoose.Schema({
     name: String
 });
